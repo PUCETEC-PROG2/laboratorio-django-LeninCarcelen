@@ -12,7 +12,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{ trainer | capfirst }}</h5>
                 <p class="card-text">Nivel {{ trainer.level }}</p>
-                <a href="trainer/{{trainer.id}}" class="btn btn-primary"><i class="fa-solid fa-eye"></i></a>
+                <a href="/trainer/{{trainer.id}}" class="btn btn-primary"><i class="fa-solid fa-eye"></i></a>
             {% if user.is_authenticated %}
                 <a href="edit_trainer/{{trainer.id}}" class="btn btn-primary"><i class="fa-solid fa-pencil"></i></a>
                 <a href="delete_trainer/{{trainer.id}}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
