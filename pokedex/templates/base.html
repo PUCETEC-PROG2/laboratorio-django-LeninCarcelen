@@ -31,27 +31,27 @@
                 <div class="navbar-collapse collapse" id="navbarColor02" style="">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url "pokedex:login" %}">
+                            <a class="nav-link text-white" href="{% url "pokedex:login" %}">
                                 Home
                                 <i class="fa-solid fa-house"></i>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url "pokedex:trainers" %}">
+                            <a class="nav-link text-white" href="{% url "pokedex:trainers" %}">
                                 Entrenadores
                                 <i class="fa-solid fa-person"></i>
                             </a>
                         </li>
                         {% if user.is_authenticated %}
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url "logout" %}">
+                                <a class="nav-link text-white" href="{% url "logout" %}">
                                     Salir
                                     <i class="fa-solid fa-right-from-bracket"></i>
                                 </a>
                             </li>
                         {% else %}
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url "pokedex:login" %}">
+                                <a class="nav-link text-white" href="{% url "pokedex:login" %}">
                                     Ingresar
                                     <i class="fa-solid fa-right-to-bracket"></i>
                                 </a>
