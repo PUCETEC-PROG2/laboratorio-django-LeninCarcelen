@@ -41,6 +41,17 @@ def trainer(request, trainer_id):
     }
     return HttpResponse(template.render(context, request))
 
+def add_trainer(request):
+    if request.method == 'POST':
+        form = TrainerForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('pokedex:add_trainer')
+    else:
+        form = TrainerForm()
+    
+    return render(request, 'trainer_form.html', {'form': form})
+
 @login_required
 def add_pokemon(request):
     if request.method == 'POST':
@@ -69,6 +80,25 @@ def delete_pokemon(request, pokemon_id):
     pokemon = Pokemon.objects.get(id=pokemon_id)
     pokemon.delete()
     return redirect('pokedex:index')
+
+def edit_trainer(request, trainer_id):
+    trainer = trainer.objects.get(id=trainer_id)
+    if request.method == 'POST':
+        form = TrainerForm(request.POST, request.FILES, instance=trainer)
+        if form.is_valid():
+            form.save()
+            return redirect('pokedex:index')
+    else:
+        form = TrainerForm(instance=trainer)
+    
+    return render(request, 'trainer_form.html', {'form': form})
+
+def delete_trainer(request, trainer_id):
+    trainer = Trainer.objects.get(id=trainer_id)
+    trainer.delete()
+    return redirect('pokedex:index')
+
+
 
 class CustomLoginView(LoginView):
     template_name = "login_form.html"
